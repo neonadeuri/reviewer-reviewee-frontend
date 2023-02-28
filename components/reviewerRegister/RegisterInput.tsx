@@ -1,4 +1,4 @@
-import { IRegisterInputType } from './reviewerRegister';
+import { IRegisterInputType } from './registerType';
 
 function RegisterInput({ name, input, setInput, placeholder }: IRegisterInputType) {
   return (
