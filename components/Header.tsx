@@ -1,12 +1,17 @@
 import Image from 'next/image';
 import img from 'styles/images/person.png';
+import Link from 'next/link';
 
 const Header = () => {
   return (
     <div className="w-full sticky mb-3">
       <div className="max-w-7xl mx-auto h-24 flex items-center justify-between text-4xl">
-        <span className="cursor-pointer font-bold">Logo</span>
-        <span className="cursor-pointer font-bold">LogIn</span>
+        <Link href="/">
+          <span className="cursor-pointer font-bold">Logo</span>
+        </Link>
+        <Link href={'/login'}>
+          <span className="cursor-pointer font-bold">LogIn</span>
+        </Link>
       </div>
       <div className="w-full h-80 bg-cyan-200">
         <div className="max-w-7xl h-full flex items-center justify-between mx-auto">
