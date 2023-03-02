@@ -1,11 +1,12 @@
 import React from 'react';
+import Template from '../components/LogIn/Template';
 
 function login() {
-  const client_id = process.env.NEXT_PUBLIC_CLIENT_ID;
-
-  const loginUri = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=repo:status read:repo_hook user:email&redirect_uri=http://localhost:3000/githubLogin`;
-
-  return <a href={loginUri}>깃허브로그인</a>;
+  return (
+    <div className="w-full flex justify-center items-center">
+      <Template />
+    </div>
+  );
 }
 
 export default login;
