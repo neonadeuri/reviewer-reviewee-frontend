@@ -10,18 +10,24 @@ export interface IModalPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export type data = string;
+export interface ISkillType {
+  id: number;
+  skill: string;
+}
 
 export interface IReviewerDropDownPropsType {
   name: string;
-  dropList: string[];
-  type: string | string[];
+  dropList: string[] | ISkillType[];
+  select: string | ISkillType[];
+  setSelect: React.Dispatch<React.SetStateAction<string | ISkillType[]>>;
+  etc?: string;
+  setEtc?: React.Dispatch<React.SetStateAction<string>>;
   ment: string;
 }
 
 export interface IReviewerRegisterType {
-  position: string;
+  job: string;
   career: string;
-  skill: string[];
-  introduce: string;
+  techStack: number[];
+  introduction: string;
 }
