@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import RegisterInput from './UserInput';
 import ReviewerRegisterModal from './ReviewerRegisterModal';
+import UserInput from './UserInput';
 
 const InformationForm = () => {
   // User Information Form
@@ -14,27 +14,27 @@ const InformationForm = () => {
       <div>
         {modify ? (
           <>
-            <RegisterInput
+            <UserInput
               name="활동명"
               input={userId}
               setInput={setUserId}
               placeholder="활동명을 입력해주세요."
               disable={false}
             />
-            <RegisterInput
+            <UserInput
               name="이메일"
               input={email}
               setInput={setEmail}
               placeholder="이메일을 입력해주세요."
               disable={false}
             />
-            <RegisterInput name="Github URL" input={url} setInput={setUrl} />
+            <UserInput name="Github URL" input={url} setInput={setUrl} />
           </>
         ) : (
           <>
-            <RegisterInput name="활동명" input={userId} setInput={setUserId} />
-            <RegisterInput name="이메일" input={email} setInput={setEmail} />
-            <RegisterInput name="Github URL" input={url} setInput={setUrl} />
+            <UserInput name="활동명" input={userId} setInput={setUserId} />
+            <UserInput name="이메일" input={email} setInput={setEmail} />
+            <UserInput name="Github URL" input={url} setInput={setUrl} />
           </>
         )}
       </div>
