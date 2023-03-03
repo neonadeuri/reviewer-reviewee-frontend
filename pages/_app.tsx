@@ -4,6 +4,10 @@ import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
 import Header from '../components/Header';
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  import('../mocks');
+}
+
 const client = new QueryClient({
   defaultOptions: {
     queries: {
