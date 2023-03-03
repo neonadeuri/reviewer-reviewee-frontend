@@ -5,8 +5,10 @@ export const handlers = [
     console.log(req.body);
     return res(
       ctx.status(200),
+      ctx.cookie('access_token', 'ACCESS_TOKEN'),
+      ctx.cookie('refresh_token', 'REFRESH_TOKEN'),
       ctx.json({
-        status: 'success',
+        message: '로그인에 성공했습니다.',
       }),
     );
   }),
