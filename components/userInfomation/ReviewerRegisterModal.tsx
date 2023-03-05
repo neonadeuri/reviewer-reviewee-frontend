@@ -1,27 +1,32 @@
+import { useMutation } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
-import { IModalPropsType, IReviewerRegisterType, ISkillType } from './informationType';
+import { registerUpdate } from '../../pages/api/userInfo';
+import { IModalPropsType, IReviewerRegisterUpdateType, ISkillType } from './informationType';
 import ReviewerDropDown from './ReviewerDropDown';
 
-const positionDummy = ['프론트엔드', '백엔드', '모바일', '기타'];
-const careerDummy = ['신입(1년이하)', '주니어(1~3년)', '미들(4~8년)', '시니어(9년이상)'];
-const skillDummy = [
-  { id: 1, skill: 'React' },
-  { id: 2, skill: 'SpringBoot' },
-  { id: 3, skill: 'Spring' },
-  { id: 4, skill: 'View' },
-];
-
-function ReviewerRegisterModal({ setModal }: IModalPropsType) {
-  // 추후 react-query 로 데이터 가져온 후 사용 예정
-  // const [position, setPosition] = useState<string[]>(positionDummy);
-  // const [career, setCareer] = useState<string[]>(careerDummy);
-  // const [skill, setSkill] = useState<string[]>(skillDummy);
+function ReviewerRegisterModal({ setModal, data }: IModalPropsType) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [job, setJob] = useState<string>('');
+  const [job, setJob] = useState<string>(data.register.job);
   const [etc, setEtc] = useState<string>('');
-  const [career, setCareer] = useState<string>('');
-  const [techStack, setTechStack] = useState<ISkillType[]>([]);
-  const [introduction, setIntroduce] = useState<string>('');
+  const [career, setCareer] = useState<string>(data.register.career);
+  const [techStack, setTechStack] = useState<ISkillType[]>(data.register.techStack);
+  const [introduction, setIntroduction] = useState<string>(data.register.introduction);
+
+  const { mutate, isLoading } = useMutation({
+    mutationFn: (register: IReviewerRegisterUpdateType) => {
+      return registerUpdate(register);
+    },
+    onSuccess: () => {
+      setModal(false);
+    },
+    onError: () => {
+      setJob(data.register.job);
+      setCareer(data.register.career);
+      setTechStack(data.register.techStack);
+      setIntroduction(data.register.introduction);
+      alert('오류로 인해 업데이트가 진행되지 않았습니다.');
+    },
+  });
 
   useEffect(() => {
     const handler = (event: any) => {
@@ -38,14 +43,12 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
 
   // reviewer 등록 함수
   const reviewerSubmit = () => {
-    const register: IReviewerRegisterType = {
+    mutate({
       job: etc ? etc : job,
       career: career,
       techStack: techStack.map((el) => el.id),
       introduction: introduction,
-    };
-    setModal(false);
-    console.log(register);
+    });
   };
 
   const checkValidation = (): boolean => {
@@ -56,6 +59,10 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
       return false;
     }
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -70,7 +77,7 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
               select={job}
               setSelect={(value: React.SetStateAction<string | ISkillType[]>) => setJob(value as string)}
               name="직무"
-              dropList={positionDummy}
+              dropList={data.registerOption.positionList}
               etc={etc}
               setEtc={setEtc}
               ment="직무를 선택해주세요"
@@ -79,14 +86,14 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
               select={career}
               setSelect={(value: React.SetStateAction<string | ISkillType[]>) => setCareer(value as string)}
               name="경력"
-              dropList={careerDummy}
+              dropList={data.registerOption.careerList}
               ment="경력을 선택해주세요"
             />
             <ReviewerDropDown
               select={techStack}
               setSelect={(value: React.SetStateAction<string | ISkillType[]>) => setTechStack(value as ISkillType[])}
               name="기술 스택"
-              dropList={skillDummy}
+              dropList={data.registerOption.techList}
               ment="스킬을 선택해주세요"
             />
             <div className="mt-6">
@@ -94,7 +101,7 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
               <textarea
                 className="p-2 w-full h-20 border-solid border-2 rounded-md outline-none"
                 value={introduction}
-                onChange={(e) => setIntroduce(e.currentTarget.value)}
+                onChange={(e) => setIntroduction(e.currentTarget.value)}
               />
             </div>
           </div>
