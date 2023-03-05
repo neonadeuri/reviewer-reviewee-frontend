@@ -12,6 +12,10 @@ const client = new QueryClient({
   },
 });
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  import('../mocks');
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={client}>
