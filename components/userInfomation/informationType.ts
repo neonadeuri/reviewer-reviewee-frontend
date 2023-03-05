@@ -8,6 +8,7 @@ export interface IRegisterInputType {
 
 export interface IModalPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  data: Omit<IUserGetType, 'userInfo'>;
 }
 
 export interface ISkillType {
@@ -25,9 +26,38 @@ export interface IReviewerDropDownPropsType {
   ment: string;
 }
 
-export interface IReviewerRegisterType {
+export interface IReviewerRegisterUpdateType {
   job: string;
   career: string;
   techStack: number[];
   introduction: string;
+}
+
+export interface IReviewerRegisterDataType extends Omit<IReviewerRegisterUpdateType, 'techStack'> {
+  techStack: ISkillType[];
+}
+
+export interface IUserUpdateType {
+  username: string;
+  email: string;
+}
+
+export interface UserType extends IUserUpdateType {
+  githubURL: string;
+}
+
+export interface IRegisterListOption {
+  positionList: string[];
+  careerList: string[];
+  techList: ISkillType[];
+}
+
+export interface IUserGetType {
+  userInfo: UserType;
+  register: IReviewerRegisterDataType;
+  registerOption: IRegisterListOption;
+}
+
+export interface UserPageProps {
+  data: IUserGetType;
 }
