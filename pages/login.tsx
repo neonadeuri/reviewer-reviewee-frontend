@@ -1,11 +1,15 @@
 import React from 'react';
 import Template from '../components/LogIn/Template';
+import Header from '../components/Header';
 
 function login() {
   return (
-    <div className="w-full flex justify-center items-center">
-      <Template />
-    </div>
+    <>
+      <Header></Header>
+      <div className="w-full flex justify-center items-center">
+        <Template />
+      </div>
+    </>
   );
 }
 
