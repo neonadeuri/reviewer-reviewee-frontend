@@ -1,3 +1,5 @@
+import { AxiosResponse } from 'axios';
+
 export interface IRegisterInputType {
   name: string;
   input: string;
@@ -8,7 +10,6 @@ export interface IRegisterInputType {
 
 export interface IModalPropsType {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  data: Omit<IUserGetType, 'userInfo'>;
 }
 
 export interface ISkillType {
@@ -30,7 +31,7 @@ export interface IReviewerRegisterUpdateType {
   job: string;
   career: string;
   techStack: number[];
-  introduction: string;
+  introduce: string;
 }
 
 export interface IReviewerRegisterDataType extends Omit<IReviewerRegisterUpdateType, 'techStack'> {
@@ -43,7 +44,9 @@ export interface IUserUpdateType {
 }
 
 export interface UserType extends IUserUpdateType {
-  githubURL: string;
+  imageUrl: string;
+  profileUrl: string;
+  isReviewer: boolean;
 }
 
 export interface IRegisterListOption {
@@ -52,12 +55,17 @@ export interface IRegisterListOption {
   techList: ISkillType[];
 }
 
+export interface IRegister extends IReviewerRegisterDataType, IRegisterListOption {}
+
 export interface IUserGetType {
   userInfo: UserType;
-  register: IReviewerRegisterDataType;
-  registerOption: IRegisterListOption;
 }
 
 export interface UserPageProps {
   data: IUserGetType;
+}
+
+export interface IRegisterMutationProps {
+  register: IReviewerRegisterUpdateType;
+  mutationFnCb: (regi: IReviewerRegisterUpdateType) => Promise<AxiosResponse<any, any>>;
 }
