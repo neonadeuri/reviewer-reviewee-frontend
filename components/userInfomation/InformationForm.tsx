@@ -1,44 +1,33 @@
-import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { userGet, userInfoUpdate } from '../../pages/api/userInfo';
-import { IUserGetType, IUserUpdateType, UserPageProps } from './informationType';
+import { userInfoUpdate } from '../../pages/api/userInfo';
+import { UserPageProps } from './informationType';
 import ReviewerRegisterModal from './ReviewerRegisterModal';
 import UserInput from './UserInput';
 
 const InformationForm = ({ data }: UserPageProps) => {
-  // User Information Form
   const [userId, setUserId] = useState<string>(data.userInfo.username);
   const [email, setEmail] = useState<string>(data.userInfo.email);
-  const [githubUrl, setGithubUrl] = useState<string>(data.userInfo.githubURL);
-  const route = useRouter();
-  const query = route.query as { userId: string };
+  const [profileUrl, setProfileUrl] = useState<string>(data.userInfo.profileUrl);
   const [modal, setModal] = useState<boolean>(false);
   const [modify, setModify] = useState<boolean>(false);
-
-  const { mutate, isLoading } = useMutation({
-    mutationFn: (userData: IUserUpdateType) => {
-      return userInfoUpdate(userData);
-    },
-    onSuccess: () => {
-      userGet(query.userId).then((res: { data: IUserGetType }) => {
-        const userData = res.data.userInfo;
-        setUserId(userData.username);
-        setEmail(userData.email);
+  const [updateLoading, setUpdateLoading] = useState<boolean>(false);
+  const userUpdateHandler = async () => {
+    setUpdateLoading((prev) => !prev);
+    await userInfoUpdate({ username: userId, email })
+      .then(() => {
+        setUpdateLoading(false);
+        alert('데이터가 업데이트 되었습니다.');
+        // 여기서 새로고침을 통한 최신데이터를 가져올지 아니면 그냥 userGet을 사용해서
+        // 데이터를 최신 데이터로 업데이트를 해줄지 고민입니다.
+      })
+      .catch(() => {
+        setUpdateLoading(false);
+        alert('데이터 업데이트가 진행되지 않았습니다. 다시 진행해 주시기 바랍니다.');
       });
-    },
-    onError: () => {
-      setUserId(data.userInfo.username);
-      setEmail(data.userInfo.email);
-      alert('업데이트 중 오류가 발생했습니다. 다시 진행해 주시기 바랍니다.');
-    },
-  });
-
-  const userUpdate = () => {
-    mutate({ username: userId, email });
   };
 
-  if (isLoading) {
+  // 추후 로딩 컴포넌트를 사용할 예정
+  if (updateLoading) {
     return <div>Loading...</div>;
   }
 
@@ -61,13 +50,13 @@ const InformationForm = ({ data }: UserPageProps) => {
               placeholder="이메일을 입력해주세요."
               disable={false}
             />
-            <UserInput name="Github Url" input={githubUrl} setInput={setGithubUrl} />
+            <UserInput name="Github Url" input={profileUrl} setInput={setProfileUrl} />
           </>
         ) : (
           <>
             <UserInput name="활동명" input={userId} setInput={setUserId} />
             <UserInput name="이메일" input={email} setInput={setEmail} />
-            <UserInput name="Github Url" input={githubUrl} setInput={setGithubUrl} />
+            <UserInput name="Github Url" input={profileUrl} setInput={setProfileUrl} />
           </>
         )}
       </div>
@@ -76,7 +65,7 @@ const InformationForm = ({ data }: UserPageProps) => {
           onClick={() => {
             if (modify) {
               setModify((prev) => !prev);
-              userUpdate();
+              userUpdateHandler();
             } else {
               setModify((prev) => !prev);
             }
@@ -91,12 +80,7 @@ const InformationForm = ({ data }: UserPageProps) => {
           리뷰어 등록
         </button>
       </div>
-      {modal && (
-        <ReviewerRegisterModal
-          setModal={setModal}
-          data={{ register: data.register, registerOption: data.registerOption }}
-        />
-      )}
+      {modal && <ReviewerRegisterModal setModal={setModal} />}
     </div>
   );
 };
