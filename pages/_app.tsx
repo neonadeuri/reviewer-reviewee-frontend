@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
 import Header from '../components/Header';
-
 const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Header />
         <Component {...pageProps} />
       </RecoilRoot>
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
