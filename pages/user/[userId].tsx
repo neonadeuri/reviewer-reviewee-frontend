@@ -11,19 +11,14 @@ const UserPage = ({ data }: UserPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const query = ctx.query as { userId: string };
-  const res = await userGet(query.userId);
-  const data: IUserGetType = res.data;
-
-  if (res.status === 404) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+export const getServerSideProps: GetServerSideProps = async () => {
+  const user = await userGet();
+  // 처음에 데이터를 전부 가져오려고 했으나 리뷰어 쪽을 누르지않는다면 불필요한 API 요청이 발생한다고 생각하여 주석처리
+  // const reviewer = reviewerGet();
+  // const res = await Promise.all([user, reviewer]);
+  const data: IUserGetType = {
+    userInfo: user,
+  };
   return {
     props: {
       data,
