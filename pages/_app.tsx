@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
 import Header from '../components/Header';
+import { Toaster } from 'react-hot-toast';
 const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={client}>
       <RecoilRoot>
         <Header />
+        <Toaster />
         <Component {...pageProps} />
       </RecoilRoot>
       <ReactQueryDevtools />

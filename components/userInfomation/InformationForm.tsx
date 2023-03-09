@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { userInfoUpdate } from '../../pages/api/userInfo';
 import { UserPageProps } from './informationType';
 import ReviewerRegisterModal from './ReviewerRegisterModal';
@@ -13,17 +14,14 @@ const InformationForm = ({ data }: UserPageProps) => {
   const [updateLoading, setUpdateLoading] = useState<boolean>(false);
   const userUpdateHandler = async () => {
     setUpdateLoading((prev) => !prev);
-    await userInfoUpdate({ username: userId, email })
-      .then(() => {
-        setUpdateLoading(false);
-        alert('데이터가 업데이트 되었습니다.');
-        // 여기서 새로고침을 통한 최신데이터를 가져올지 아니면 그냥 userGet을 사용해서
-        // 데이터를 최신 데이터로 업데이트를 해줄지 고민입니다.
-      })
-      .catch(() => {
-        setUpdateLoading(false);
-        alert('데이터 업데이트가 진행되지 않았습니다. 다시 진행해 주시기 바랍니다.');
-      });
+    try {
+      await userInfoUpdate({ username: userId, email });
+      setUpdateLoading(false);
+      toast.success('데이터가 업데이트 되었습니다.');
+    } catch (err) {
+      setUpdateLoading(false);
+      toast.error('데이터 업데이트가 진행되지 않았습니다. 다시 진행해 주시기 바랍니다.');
+    }
   };
 
   // 추후 로딩 컴포넌트를 사용할 예정

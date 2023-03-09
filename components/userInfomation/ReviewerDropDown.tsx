@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { IReviewerDropDownPropsType, ISkillType } from './informationType';
 import cancel from '../userInfomation/Vector.svg';
+import { toast } from 'react-hot-toast';
 function ReviewerDropDown({ name, dropList, ment, select, etc, setEtc, setSelect }: IReviewerDropDownPropsType) {
   const [drop, setDrop] = useState<boolean>(false);
 
@@ -24,7 +25,7 @@ function ReviewerDropDown({ name, dropList, ment, select, etc, setEtc, setSelect
       setSelect((prev) => {
         if (isArray(prev)) {
           if (prev.length === 3) {
-            alert('최대 3개 선택 가능합니다.');
+            toast.error('최대 3개 선택 가능합니다.');
             return prev;
           } else {
             return prev.includes(el) ? [el, ...prev.filter((val) => val.id !== el.id)] : [el, ...prev];

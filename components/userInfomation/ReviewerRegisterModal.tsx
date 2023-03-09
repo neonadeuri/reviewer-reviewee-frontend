@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { registerUpdate, reviewerGet, reviewerRegister } from '../../pages/api/userInfo';
 import {
   IModalPropsType,
@@ -16,7 +17,7 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
   const { data, isLoading } = useQuery<IRegister>({
     queryKey: ['reviewer'],
     queryFn: () => reviewerGet(),
-    staleTime: 5000,
+    staleTime: 1000 * 20,
   });
 
   const { mutate } = useMutation({
@@ -24,11 +25,12 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
       return mutationFnCb(register);
     },
     onSuccess: () => {
+      toast.success('정보가 업데이트 되었습니다');
       setModal(false);
       queryClient.invalidateQueries(['reviewer']);
     },
     onError: () => {
-      alert('오류로 인해 업데이트가 진행되지 않았습니다.');
+      toast.error('오류가 발생했습니다.');
     },
   });
 
@@ -78,7 +80,7 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
     if (job && career && techStack && introduce) {
       return true;
     } else {
-      alert('전부 필수 내용입니다.');
+      toast.error('전부 필수 내용입니다.');
       return false;
     }
   };
