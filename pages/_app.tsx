@@ -4,7 +4,7 @@ import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  import('../mocks');
+  require('../mocks');
 }
 
 const client = new QueryClient({
