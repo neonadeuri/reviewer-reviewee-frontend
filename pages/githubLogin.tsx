@@ -5,7 +5,7 @@ import Header from '../components/Header';
 function GithubLogin() {
   return (
     <>
-      <Header image_url="" isLogIn={false} />
+      <Header />
       <Template />
     </>
   );
