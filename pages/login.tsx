@@ -5,7 +5,7 @@ import Header from '../components/Header';
 function login() {
   return (
     <>
-      <Header image_url="" isLogIn={false}></Header>
+      <Header />
       <div className="w-full flex justify-center items-center">
         <Template />
       </div>

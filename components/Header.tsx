@@ -1,24 +1,34 @@
 import Image from 'next/image';
 import img from 'styles/images/person.png';
 import Link from 'next/link';
-import { IAllPagePropsData } from '../globalType';
+import { IData } from '../globalType';
+import { useState } from 'react';
+import lena from 'styles/images/lena.jpg';
+import GithubLogInButton from './HeaderSub/GithubLogInButton';
+import HeaderDropDown from './HeaderSub/HeaderDropDown';
 
-const Header = ({ image_url, isLogIn }: IAllPagePropsData) => {
-  console.log(isLogIn);
+const Header = ({ image_url }: Partial<IData>) => {
+  const [dropdown, setDropdown] = useState<boolean>(false);
+
   return (
     <div className="w-full sticky mb-3">
       <div className="max-w-7xl mx-auto h-24 flex items-center justify-between text-4xl">
         <Link href="/">
           <span className="cursor-pointer font-bold">Logo</span>
         </Link>
-        {isLogIn === true ? (
-          <Link href={'/login'}>
-            {/* 정상적으로 로그인이 되어있다면 image_url 이미지를 띄워줄 예정 (next/Image) 로그인시 클릭하여 드롭다운 구현할 예정*/}
-            <span className="cursor-pointer font-bold">{image_url}</span>
-          </Link>
+        {image_url ? (
+          <>
+            <ul className="cursor-pointer font-bold" onClick={() => setDropdown((prev) => !prev)}>
+              <div className="flex">
+                <Image src={lena} alt="userProfile" width={60} height={60} className="rounded-full" />
+                <span className="text-base"> ▼ </span>
+              </div>
+              {dropdown && <HeaderDropDown />}
+            </ul>
+          </>
         ) : (
-          <Link href={'/login'}>
-            <span className="cursor-pointer font-bold">LogIn</span>
+          <Link href="/login">
+            <GithubLogInButton />
           </Link>
         )}
       </div>
