@@ -13,7 +13,7 @@ export const handlers = [
         email: email,
         imageUrl: 'image',
         profileUrl: 'https://github@url.com/kukus',
-        isReviewer: true,
+        isReviewer: false,
       }),
     );
   }),
@@ -46,9 +46,12 @@ export const handlers = [
     return res(ctx.status(204));
   }),
   rest.post('http://localhost:3000/members/me/reviewer', async (req, res, ctx) => {
-    return res(ctx.status(204));
+    return res(ctx.status(201));
   }),
   rest.patch('http://localhost:3000/members/me/reviewer', async (req, res, ctx) => {
+    return res(ctx.status(204));
+  }),
+  rest.patch('http://localhost:3000/members/me/reviewer-status', async (req, res, ctx) => {
     return res(ctx.status(204));
   }),
 ];

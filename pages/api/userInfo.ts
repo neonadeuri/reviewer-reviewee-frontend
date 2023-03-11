@@ -8,13 +8,11 @@ export const userInfoUpdate = async (userInfo: IUserUpdateType) => {
 // registerUpdate / reviewerRegister 부분에서 값을 반환해야 하는가??
 export const registerUpdate = async (regiInfo: IReviewerRegisterUpdateType) => {
   const register = await axios.patch('http://localhost:3000/members/me/reviewer', regiInfo);
-  console.log('updata!');
   return register;
 };
 
 export const reviewerRegister = async (regiInfo: IReviewerRegisterUpdateType) => {
   const register = await axios.post('http://localhost:3000/members/me/reviewer', regiInfo);
-  console.log('register!');
   return register;
 };
 
@@ -26,4 +24,9 @@ export const userGet = async () => {
 export const reviewerGet = async () => {
   const getReviewer = await axios.get('http://localhost:3000/members/reviewer');
   return getReviewer.data;
+};
+
+export const reviewerStatusUpdate = async () => {
+  const updateReviewerStatus = await axios.patch('http://localhost:3000/members/me/reviewer-status');
+  return updateReviewerStatus;
 };
