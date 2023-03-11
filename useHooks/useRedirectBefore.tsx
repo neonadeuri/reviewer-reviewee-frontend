@@ -9,7 +9,7 @@ function useRedirectBefore() {
     sessionStorage.setItem('access_token', access_token);
   };
 
-  return useEffect(() => {
+  useEffect(() => {
     if (router.query.code) {
       console.log(router.query.code);
       logIn(router.query.code).then((res) => {
