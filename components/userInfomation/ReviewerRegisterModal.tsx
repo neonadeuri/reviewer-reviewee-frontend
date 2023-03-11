@@ -138,7 +138,7 @@ function ReviewerRegisterModal({ setModal }: IModalPropsType) {
                   checkValidation() && data.job ? reviewerSubmit(registerUpdate) : reviewerSubmit(reviewerRegister)
                 }>
                 {/* 추후 정보가 있는지 없는지 여부에 따른 멘트 변경 */}
-                리뷰어 등록
+                {data.job ? '리뷰어 수정' : '리뷰어 등록'}
               </button>
             </div>
           </div>
