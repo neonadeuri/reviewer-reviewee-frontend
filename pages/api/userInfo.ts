@@ -22,7 +22,7 @@ export const userGet = async () => {
 };
 
 export const reviewerGet = async () => {
-  const getReviewer = await axios.get('http://localhost:3000/members/reviewer');
+  const getReviewer = await axios.get('http://localhost:3000/members/me/reviewer');
   return getReviewer.data;
 };
 
