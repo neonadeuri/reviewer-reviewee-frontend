@@ -93,4 +93,5 @@ export const handlers = [
         message: 'logout',
       }),
     );
+  }),
 ];
