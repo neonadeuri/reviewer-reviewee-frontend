@@ -70,6 +70,28 @@
     strict-event-emitter "^0.2.4"
     web-encoding "^1.1.5"
 
+"@mswjs/cookies@^0.2.2":
+  "integrity" "sha512-mlN83YSrcFgk7Dm1Mys40DLssI1KdJji2CMKN8eOlBqsTADYzj2+jWzsANsUTFbxDMWPD5e9bfA1RGqBpS3O1g=="
+  "resolved" "https://registry.npmjs.org/@mswjs/cookies/-/cookies-0.2.2.tgz"
+  "version" "0.2.2"
+  dependencies:
+    "@types/set-cookie-parser" "^2.4.0"
+    "set-cookie-parser" "^2.4.6"
+
+"@mswjs/interceptors@^0.17.5":
+  "integrity" "sha512-hjS5dy8u+Baa5r/SVAQyWZYQr8YZzpeGldNXJlZQBPjt7FQL7Acd1BnXJWmIhl62s5uh0WJNAcUMfAAcnqTchA=="
+  "resolved" "https://registry.npmjs.org/@mswjs/interceptors/-/interceptors-0.17.8.tgz"
+  "version" "0.17.8"
+  dependencies:
+    "@open-draft/until" "^1.0.3"
+    "@types/debug" "^4.1.7"
+    "@xmldom/xmldom" "^0.8.3"
+    "debug" "^4.3.3"
+    "headers-polyfill" "^3.1.0"
+    "outvariant" "^1.2.1"
+    "strict-event-emitter" "^0.2.4"
+    "web-encoding" "^1.1.5"
+
 "@next/env@13.2.1":
   version "13.2.1"
   resolved "https://registry.npmjs.org/@next/env/-/env-13.2.1.tgz"
@@ -117,6 +139,11 @@
   version "1.0.3"
   resolved "https://registry.npmjs.org/@open-draft/until/-/until-1.0.3.tgz"
   integrity sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q==
+
+"@open-draft/until@^1.0.3":
+  "integrity" "sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q=="
+  "resolved" "https://registry.npmjs.org/@open-draft/until/-/until-1.0.3.tgz"
+  "version" "1.0.3"
 
 "@pkgr/utils@^2.3.1":
   version "2.3.1"
@@ -176,6 +203,16 @@
   resolved "https://registry.npmjs.org/@types/cookie/-/cookie-0.4.1.tgz"
   integrity sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==
 
+"@tailwindcss/line-clamp@^0.4.2":
+  "integrity" "sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw=="
+  "resolved" "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz"
+  "version" "0.4.2"
+
+"@tanstack/query-core@4.24.10":
+  "integrity" "sha512-2QywqXEAGBIUoTdgn1lAB4/C8QEqwXHj2jrCLeYTk2xVGtLiPEUD8jcMoeB2noclbiW2mMt4+Fq7fZStuz3wAQ=="
+  "resolved" "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.24.10.tgz"
+  "version" "4.24.10"
+
 "@types/debug@^4.1.7":
   version "4.1.7"
   resolved "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
@@ -187,6 +224,23 @@
   version "1.1.1"
   resolved "https://registry.npmjs.org/@types/js-levenshtein/-/js-levenshtein-1.1.1.tgz"
   integrity sha512-qC4bCqYGy1y/NP7dDVr7KJarn+PbX1nSpwA7JXdu0HxT3QYjO8MJ+cntENtHFVy2dRAyBV23OZ6MxsW1AM1L8g==
+
+"@types/cookie@^0.4.1":
+  "integrity" "sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q=="
+  "resolved" "https://registry.npmjs.org/@types/cookie/-/cookie-0.4.1.tgz"
+  "version" "0.4.1"
+
+"@types/debug@^4.1.7":
+  "integrity" "sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg=="
+  "resolved" "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
+  "version" "4.1.7"
+  dependencies:
+    "@types/ms" "*"
+
+"@types/js-levenshtein@^1.1.1":
+  "integrity" "sha512-qC4bCqYGy1y/NP7dDVr7KJarn+PbX1nSpwA7JXdu0HxT3QYjO8MJ+cntENtHFVy2dRAyBV23OZ6MxsW1AM1L8g=="
+  "resolved" "https://registry.npmjs.org/@types/js-levenshtein/-/js-levenshtein-1.1.1.tgz"
+  "version" "1.1.1"
 
 "@types/json-schema@^7.0.9":
   version "7.0.11"
@@ -243,6 +297,13 @@
   version "2.4.2"
   resolved "https://registry.npmjs.org/@types/set-cookie-parser/-/set-cookie-parser-2.4.2.tgz"
   integrity sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w==
+  dependencies:
+    "@types/node" "*"
+
+"@types/set-cookie-parser@^2.4.0":
+  "integrity" "sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w=="
+  "resolved" "https://registry.npmjs.org/@types/set-cookie-parser/-/set-cookie-parser-2.4.2.tgz"
+  "version" "2.4.2"
   dependencies:
     "@types/node" "*"
 
@@ -328,6 +389,7 @@
   integrity sha512-JqNLnX3leaHFZEN0gCh81sIvgrp/2GOACZNgO4+Tkf64u51kTpAyWFOY8XHx8XuXr3N2C9zgPPHtcpMg6z1g0w==
   dependencies:
     "@typescript-eslint/types" "5.53.0"
+
     eslint-visitor-keys "^3.3.0"
 
 "@xmldom/xmldom@^0.8.3":
@@ -968,6 +1030,7 @@ eslint-config-next@13.2.1:
   version "13.2.1"
   resolved "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-13.2.1.tgz"
   integrity sha512-2GAx7EjSiCzJN6H2L/v1kbYrNiwQxzkyjy6eWSjuhAKt+P6d3nVNHGy9mON8ZcYd72w/M8kyMjm4UB9cvijgrw==
+  
   dependencies:
     "@next/eslint-plugin-next" "13.2.1"
     "@rushstack/eslint-patch" "^1.1.3"
@@ -1132,6 +1195,7 @@ eslint@*, "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8", "eslint@^3 || ^4 
     "@humanwhocodes/config-array" "^0.11.8"
     "@humanwhocodes/module-importer" "^1.0.1"
     "@nodelib/fs.walk" "^1.2.8"
+
     ajv "^6.10.0"
     chalk "^4.0.0"
     cross-spawn "^7.0.2"
@@ -2004,12 +2068,14 @@ msw@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/msw/-/msw-1.1.0.tgz"
   integrity sha512-oqMvUXm1bMbwvGpoXAQVz8vXXQyQyx52HBDg3EDOK+dFXkQHssgkXEG4LfMwwZyr2Qt18I/w04XPaY4BkFTkzA==
+
   dependencies:
     "@mswjs/cookies" "^0.2.2"
     "@mswjs/interceptors" "^0.17.5"
     "@open-draft/until" "^1.0.3"
     "@types/cookie" "^0.4.1"
     "@types/js-levenshtein" "^1.1.1"
+
     chalk "4.1.1"
     chokidar "^3.4.2"
     cookie "^0.4.2"
@@ -2049,6 +2115,7 @@ next@13.2.1:
   version "13.2.1"
   resolved "https://registry.npmjs.org/next/-/next-13.2.1.tgz"
   integrity sha512-qhgJlDtG0xidNViJUPeQHLGJJoT4zDj/El7fP3D3OzpxJDUfxsm16cK4WTMyvSX1ciIfAq05u+0HqFAa+VJ+Hg==
+
   dependencies:
     "@next/env" "13.2.1"
     "@swc/helpers" "0.4.14"
@@ -3059,3 +3126,4 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+

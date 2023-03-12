@@ -3,8 +3,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
-import Header from '../components/Header';
 import { Toaster } from 'react-hot-toast';
+
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  require('../mocks');
+}
+
 const client = new QueryClient({
   defaultOptions: {
     queries: {
@@ -13,15 +17,10 @@ const client = new QueryClient({
   },
 });
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  import('../mocks');
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={client}>
       <RecoilRoot>
-        <Header />
         <Toaster />
         <Component {...pageProps} />
       </RecoilRoot>
