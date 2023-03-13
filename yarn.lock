@@ -142,10 +142,26 @@
   "resolved" "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz"
   "version" "0.4.2"
 
+"@tanstack/match-sorter-utils@^8.7.0":
+  "integrity" "sha512-2AMpRiA6QivHOUiBpQAVxjiHAA68Ei23ZUMNaRJrN6omWiSFLoYrxGcT6BXtuzp0Jw4h6HZCmGGIM/gbwebO2A=="
+  "resolved" "https://registry.npmjs.org/@tanstack/match-sorter-utils/-/match-sorter-utils-8.7.6.tgz"
+  "version" "8.7.6"
+  dependencies:
+    "remove-accents" "0.4.2"
+
 "@tanstack/query-core@4.24.10":
   "integrity" "sha512-2QywqXEAGBIUoTdgn1lAB4/C8QEqwXHj2jrCLeYTk2xVGtLiPEUD8jcMoeB2noclbiW2mMt4+Fq7fZStuz3wAQ=="
   "resolved" "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.24.10.tgz"
   "version" "4.24.10"
+
+"@tanstack/react-query-devtools@^4.26.1":
+  "integrity" "sha512-ts2mA+fyFYFRi3Cee4xBk8Fx6waSFOM+yCkFqwJfGQRGjjTIMYMZPJv4wkv7vy12IVi1SYhL8au22LRKlXS1Zg=="
+  "resolved" "https://registry.npmjs.org/@tanstack/react-query-devtools/-/react-query-devtools-4.26.1.tgz"
+  "version" "4.26.1"
+  dependencies:
+    "@tanstack/match-sorter-utils" "^8.7.0"
+    "superjson" "^1.10.0"
+    "use-sync-external-store" "^1.2.0"
 
 "@tanstack/react-query@^4.24.10":
   "integrity" "sha512-FY1DixytOcNNCydPQXLxuKEV7VSST32CAuJ55BjhDNqASnMLZn+6c30yQBMrODjmWMNwzfjMZnq0Vw7C62Fwow=="
@@ -687,6 +703,13 @@
   "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
   "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
   "version" "0.4.2"
+
+"copy-anything@^3.0.2":
+  "integrity" "sha512-fpW2W/BqEzqPp29QS+MwwfisHCQZtiduTe/m8idFo0xbti9fIZ2WVhAsCv4ggFVH3AgCkVdpoOCtQC6gBrdhjw=="
+  "resolved" "https://registry.npmjs.org/copy-anything/-/copy-anything-3.0.3.tgz"
+  "version" "3.0.3"
+  dependencies:
+    "is-what" "^4.1.8"
 
 "cross-spawn@^7.0.2", "cross-spawn@^7.0.3":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
@@ -1452,6 +1475,11 @@
   "resolved" "https://registry.npmjs.org/globrex/-/globrex-0.1.2.tgz"
   "version" "0.1.2"
 
+"goober@^2.1.10":
+  "integrity" "sha512-yXHAvO08FU1JgTXX6Zn6sYCUFfB/OJSX8HHjDSgerZHZmFKAb08cykp5LBw5QnmyMcZyPRMqkdyHUSSzge788Q=="
+  "resolved" "https://registry.npmjs.org/goober/-/goober-2.1.12.tgz"
+  "version" "2.1.12"
+
 "gopd@^1.0.1":
   "integrity" "sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA=="
   "resolved" "https://registry.npmjs.org/gopd/-/gopd-1.0.1.tgz"
@@ -1791,6 +1819,11 @@
   dependencies:
     "call-bind" "^1.0.2"
     "get-intrinsic" "^1.1.1"
+
+"is-what@^4.1.8":
+  "integrity" "sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA=="
+  "resolved" "https://registry.npmjs.org/is-what/-/is-what-4.1.8.tgz"
+  "version" "4.1.8"
 
 "is-wsl@^2.2.0":
   "integrity" "sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww=="
@@ -2379,6 +2412,13 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+"react-hot-toast@^2.4.0":
+  "integrity" "sha512-qnnVbXropKuwUpriVVosgo8QrB+IaPJCpL8oBI6Ov84uvHZ5QQcTp2qg6ku2wNfgJl6rlQXJIQU5q+5lmPOutA=="
+  "resolved" "https://registry.npmjs.org/react-hot-toast/-/react-hot-toast-2.4.0.tgz"
+  "version" "2.4.0"
+  dependencies:
+    "goober" "^2.1.10"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -2439,6 +2479,11 @@
   "integrity" "sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg=="
   "resolved" "https://registry.npmjs.org/regexpp/-/regexpp-3.2.0.tgz"
   "version" "3.2.0"
+
+"remove-accents@0.4.2":
+  "integrity" "sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA=="
+  "resolved" "https://registry.npmjs.org/remove-accents/-/remove-accents-0.4.2.tgz"
+  "version" "0.4.2"
 
 "require-directory@^2.1.1":
   "integrity" "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
@@ -2681,6 +2726,13 @@
   "version" "5.1.1"
   dependencies:
     "client-only" "0.0.1"
+
+"superjson@^1.10.0":
+  "integrity" "sha512-ugvUo9/WmvWOjstornQhsN/sR9mnGtWGYeTxFuqLb4AiT4QdUavjGFRALCPKWWnAiUJ4HTpytj5e0t5HoMRkXg=="
+  "resolved" "https://registry.npmjs.org/superjson/-/superjson-1.12.2.tgz"
+  "version" "1.12.2"
+  dependencies:
+    "copy-anything" "^3.0.2"
 
 "supports-color@^7.1.0":
   "integrity" "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw=="
